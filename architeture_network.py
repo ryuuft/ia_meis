@@ -10,11 +10,13 @@ from os import listdir
 from os.path import isfile, join
 import seaborn as sns
 from sklearn.decomposition import PCA
-from keras.callbacks import ModelCheckpoint
+#from keras.callbacks import ModelCheckpoint
+from tensorflow.keras.callbacks import ModelCheckpoint
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
-from keras.utils import np_utils
-from keras.models import Sequential
+#from keras.utils import np_utils
+#from tensorflow.keras.utils import np_utils
+'''from keras.models import Sequential
 from keras.layers import Dense, Flatten,Conv1D, Dropout,AveragePooling1D,BatchNormalization,GlobalAveragePooling1D
 from keras.wrappers.scikit_learn import KerasRegressor
 from sklearn.model_selection import cross_val_score
@@ -28,9 +30,28 @@ import sqlite3
 from common import *
 from keras.layers import Input, Dense
 from keras.models import Model
-from keras.utils import plot_model
+#from keras.utils import plot_model
+from tensorflow.keras import regularizers
+from tensorflow.keras import initializers'''
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten,Conv1D, Dropout,AveragePooling1D,BatchNormalization,GlobalAveragePooling1D
+from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+#import keras
+from tensorflow.keras.regularizers import l2
+import time
+import sqlite3
+from common import *
+from tensorflow.keras.layers import Input, Dense
+from tensorflow.keras.models import Model
+#from tensorflow.keras.utils import plot_model
 from tensorflow.keras import regularizers
 from tensorflow.keras import initializers
+
 
 def conv_model(n_features):
     model = Sequential()
