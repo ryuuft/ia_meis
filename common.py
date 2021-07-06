@@ -1,4 +1,4 @@
-import pandas as pd
+'''import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 plt.style.use('seaborn-whitegrid')
@@ -23,6 +23,32 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 import keras
 from keras.regularizers import l2
+import time'''
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+plt.style.use('seaborn-whitegrid')
+import random
+import os
+import pickle
+import re
+from os import listdir
+from os.path import isfile, join
+import seaborn as sns
+from sklearn.decomposition import PCA
+from tensorflow.keras.callbacks import ModelCheckpoint
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+#from tensorflow.keras.utils import np_utils
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten,Conv1D, Dropout,AveragePooling1D,BatchNormalization,GlobalAveragePooling1D
+from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+#import keras
+from tensorflow.keras.regularizers import l2
 import time
 
 
@@ -148,7 +174,7 @@ def limit_map(n_slice,df,i=0):
         df_1 = df_1.append(temp, ignore_index = True)
         i+=300
         #print("Restam {}: ".format(len(df)-i))
-    #df_1 = df_1.sample(frac=1).reset_index(drop=True)
+    df_1 = df_1.sample(frac=1).reset_index(drop=True)
     df_train = df_1.iloc[:,0:689]
     try:
         labels_final_1 = df_1['thickness'].tolist()
